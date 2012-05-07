@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game</title>
+  </head>
+  <body>
+    <canvas id="viewport" width="608" height="342"></canvas>
+    <div id="offscreen" style="display: none">
+      <img id="baddie" src="img/baddie.png" width="16" height="16">
+      <img id="door" src="img/door.png" width="32" height="16">
+      <img id="floor" src="img/floor.png" width="16" height="16">
+      <img id="floorfringe" src="img/floorfringe.png" width="64" height="16">
+      <img id="hero" src="img/hero.png" width="16" height="16">
+      <img id="leather" src="img/leather.png" width="16" height="16">
+      <img id="sand" src="img/sand.png" width="16" height="16">
+      <img id="sandfringe" src="img/sandfringe.png" width="64" height="16">
+      <img id="stairs_dn" src="img/stairs_dn.png" width="16" height="16">
+      <img id="stairs_up" src="img/stairs_up.png" width="16" height="16">
+      <img id="sword" src="img/sword.png" width="16" height="16">
+      <img id="wall" src="img/wall.png" width="80" height="80">
+      <img id="water" src="img/water.png" width="16" height="16">
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/qtree.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/behaviour.js"></script>
+    <script src="js/usercontrol.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+Game.ui = new Game.UI(document.getElementById('viewport'));
+$.ajax('js/test.map.js', {
+  dataType: 'jsonp',
+  crossDomain: true,
+  complete: function () {
+    Game.start();
+  }
+});
+    </script>
+  </body>
+</html>
